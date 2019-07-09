@@ -19,6 +19,7 @@ $(document).ready(function() {
   console.log(crystalThreeNum);
   var crystalFourNum = Math.floor(Math.random() * 12) + 1;
   console.log(crystalFourNum);
+  var randomNumber = numbGen(19, 120);
   //
   //Functions
   //
@@ -26,32 +27,40 @@ $(document).ready(function() {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 
-  var randomNumber = numbGen(19, 120);
   console.log(randomNumber);
   $("#randNumber").text(randomNumber);
+
+  function compare() {
+    if (totalValue === randomNumber) {
+      wins++;
+      console.log(wins);
+    } else if (totalValue >= randomNumber) {
+      losses++;
+      console.log(losses);
+    }
+  }
 
   //
   //Event listeners
   $("#crystal1").on("click", function() {
     $("#totalScore").text((totalValue += crystalOneNum));
+    return totalValue;
   });
   //
   $("#crystal2").on("click", function() {
     $("#totalScore").text((totalValue += crystalTwoNum));
+    return totalValue;
   });
   $("#crystal3").on("click", function() {
     $("#totalScore").text((totalValue += crystalThreeNum));
+    return totalValue;
   });
   //
   $("#crystal4").on("click", function() {
     $("#totalScore").text((totalValue += crystalFourNum));
+    return totalValue;
   });
-
-  if (totalValue === randomNumber) {
-    wins++;
-  } else if (totalValue >= randomNumber) {
-    losses++;
-  }
+  compare();
 });
 //
 //
