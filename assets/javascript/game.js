@@ -5,16 +5,54 @@
 //
 //
 //
-//
-//Variables
-//
-//
-//Functions
-//
-//
-//Event listeners
-//
-//
+$(document).ready(function() {
+  //Variables
+  //
+  var wins = 0;
+  var losses = 0;
+  var totalValue = 0;
+  var crystalOneNum = Math.floor(Math.random() * 12) + 1;
+  console.log(crystalOneNum);
+  var crystalTwoNum = Math.floor(Math.random() * 12) + 1;
+  console.log(crystalTwoNum);
+  var crystalThreeNum = Math.floor(Math.random() * 12) + 1;
+  console.log(crystalThreeNum);
+  var crystalFourNum = Math.floor(Math.random() * 12) + 1;
+  console.log(crystalFourNum);
+  //
+  //Functions
+  //
+  function numbGen(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
+  var randomNumber = numbGen(19, 120);
+  console.log(randomNumber);
+  $("#randNumber").text(randomNumber);
+
+  //
+  //Event listeners
+  $("#crystal1").on("click", function() {
+    $("#totalScore").text((totalValue += crystalOneNum));
+  });
+  //
+  $("#crystal2").on("click", function() {
+    $("#totalScore").text((totalValue += crystalTwoNum));
+  });
+  $("#crystal3").on("click", function() {
+    $("#totalScore").text((totalValue += crystalThreeNum));
+  });
+  //
+  $("#crystal4").on("click", function() {
+    $("#totalScore").text((totalValue += crystalFourNum));
+  });
+
+  if (totalValue === randomNumber) {
+    wins++;
+  } else if (totalValue >= randomNumber) {
+    losses++;
+  }
+});
 //
 //
 //
