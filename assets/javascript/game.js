@@ -14,8 +14,8 @@ $(document).ready(function() {
   var crystalFourNum;
   var wins = 0;
   var losses = 0;
-  var totalValue = 0;
-  var randomNumber = 0;
+  var totalValue;
+  var randomNumber;
 
   //
   //Functions
@@ -28,7 +28,7 @@ $(document).ready(function() {
   function setValues() {
     return Math.floor(Math.random() * 12) + 1;
   }
-  function startGame() {
+  var startGame = function() {
     //random number is generated
     randomNumber = Math.floor(Math.random() * (120 - 19 + 1)) + 19;
     //number is set for first crystal
@@ -39,7 +39,8 @@ $(document).ready(function() {
     crystalThreeNum = setValues();
     //number is set for fourth crystal
     crystalFourNum = setValues();
-  }
+    totalValue = 0;
+  };
   startGame();
 
   console.log(crystalOneNum);
@@ -61,32 +62,28 @@ $(document).ready(function() {
     $("#crystal1").on("click", function() {
       totalValue += crystalOneNum;
       $("#totalScore").text(totalValue);
-      console.log(totalValue);
       return totalValue;
     });
-    $("#crystal2").on("click", function() {
-      totalValue += crystalTwoNum;
-      $("#totalScore").text(totalValue);
-      console.log(totalValue);
+    // $("#crystal2").on("click", function() {
+    //   totalValue += crystalTwoNum;
+    //   $("#totalScore").text(totalValue);
+    //   console.log(totalValue);
+    //   return totalValue;
+    // });
+    // $("#crystal3").on("click", function() {
+    //   totalValue += crystalThreeNum;
+    //   $("#totalScore").text(totalValue);
+    //   console.log(totalValue);
+    //   return totalValue;
+    // });
+    // $("#crystal4").on("click", function() {
+    //   totalValue += crystalFourNum;
+    //   $("#totalScore").html(totalValue);
+    //   console.log(totalValue);
+    //   return totalValue;
+    // });
 
-      return totalValue;
-    });
-    $("#crystal3").on("click", function() {
-      totalValue += crystalThreeNum;
-      $("#totalScore").text(totalValue);
-      console.log(totalValue);
-
-      return totalValue;
-    });
-    $("#crystal4").on("click", function() {
-      totalValue += crystalFourNum;
-      $("#totalScore").html(totalValue);
-      console.log(totalValue);
-
-      return totalValue;
-    });
-
-    // console.log(totalValue);
+    console.log(totalValue);
     // console.log(randomNumber);
     // if (totalValue === randomNumber) {
     //   console.log("party");

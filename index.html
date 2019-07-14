@@ -5,21 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Crystal Collector</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
   </head>
   <body>
-    <p>Crystal Game</p>
-    <div id="game">
-      <p>Wins: <span id="wins">0</span></p>
-      <p>Losses: <span id="losses">0</span></p>
-      <p>Random number: <span id="randNumber"></span></p>
-      <p>Total score: <span id="totalScore">0</span></p>
-    </div>
-    <img id="crystal1" src="assets/images/green-stone.png" alt="Crystal1" />
-    <img id="crystal2" src="assets/images/orange-stone.png" alt="Crystal2" />
-    <img id="crystal3" src="assets/images/purple-stone.png" alt="Crystal3" />
-    <img id="crystal4" src="assets/images/red-stone.png" alt="Crystal4" />
-    <div><button id="reset">RESET YOUR GAME!</button></div>
+    <H1>Crystal Game</H1>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="card">
+    
+                    <H5 class="card-text">Wins: <span id="wins">0</span></H5></div>
+      </div> 
 
+      <div class="col-sm-6">
+          <div class="card">
+    
+              <H5 class="card-text">Losses: <span id="losses">0</span></H5></div></div></div>
+      <div class="row">
+          <div class="col-sm-6">
+              <div class="card">
+        
+                  <H5 class="card-text">Random number: <span id="randNumber"></span></H5></div></div>
+      <div class="col-sm-6">
+          <div class="card">
+        
+      <H5 class="card-text">Total score: <span id="totalScore">0</span></H5></div></div>
+    </div>
+    <div class="container">
+      <img id="crystal1" src="assets/images/green-stone.png" alt="Crystal1" />
+      <img id="crystal2" src="assets/images/orange-stone.png" alt="Crystal2" />
+      <img id="crystal3" src="assets/images/purple-stone.png" alt="Crystal3" />
+      <img id="crystal4" src="assets/images/red-stone.png" alt="Crystal4" />
+    </div>
+    <div><button type="button" class="btn btn-dark" id="reset">RESET YOUR GAME!</button></div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script type="text/javascript" src="assets/javascript/game.js"></script>
   </body>
