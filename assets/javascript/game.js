@@ -39,59 +39,95 @@ $(document).ready(function() {
     crystalThreeNum = setValues();
     //number is set for fourth crystal
     crystalFourNum = setValues();
+    $("#randNumber").text(randomNumber);
+
     totalValue = 0;
+    $("#totalScore").text(totalValue);
+
+    console.log(crystalOneNum);
+    console.log(crystalTwoNum);
+    console.log(crystalThreeNum);
+    console.log(crystalFourNum);
+    console.log(randomNumber);
   };
   startGame();
 
-  console.log(crystalOneNum);
-  console.log(crystalTwoNum);
-  console.log(crystalThreeNum);
-  console.log(crystalFourNum);
-  console.log(randomNumber);
-
   //Displaying the random number to the HTML
-  $("#randNumber").text(randomNumber);
 
   //
   //Event listeners
 
   //Event listener to restart game
-  // $("#reset").on("click", startGame());
 
   function gemClick() {
     $("#crystal1").on("click", function() {
       totalValue += crystalOneNum;
       $("#totalScore").text(totalValue);
-      return totalValue;
+      console.log(totalValue);
+      if (totalValue === randomNumber) {
+        wins++;
+        $("#wins").text(wins);
+        startGame();
+      } else if (totalValue > randomNumber) {
+        losses++;
+        $("#losses").text(losses);
+        startGame();
+      }
     });
-    // $("#crystal2").on("click", function() {
-    //   totalValue += crystalTwoNum;
-    //   $("#totalScore").text(totalValue);
-    //   console.log(totalValue);
-    //   return totalValue;
-    // });
-    // $("#crystal3").on("click", function() {
-    //   totalValue += crystalThreeNum;
-    //   $("#totalScore").text(totalValue);
-    //   console.log(totalValue);
-    //   return totalValue;
-    // });
-    // $("#crystal4").on("click", function() {
-    //   totalValue += crystalFourNum;
-    //   $("#totalScore").html(totalValue);
-    //   console.log(totalValue);
-    //   return totalValue;
-    // });
+    $("#crystal2").on("click", function() {
+      totalValue += crystalTwoNum;
+      $("#totalScore").text(totalValue);
+      console.log(totalValue);
+      if (totalValue === randomNumber) {
+        wins++;
+        $("#wins").text(wins);
+        startGame();
+      } else if (totalValue > randomNumber) {
+        losses++;
+        $("#losses").text(losses);
+        startGame();
+      }
+    });
+    $("#crystal3").on("click", function() {
+      totalValue += crystalThreeNum;
+      $("#totalScore").text(totalValue);
+      console.log(totalValue);
+      if (totalValue === randomNumber) {
+        wins++;
+        $("#wins").text(wins);
+        startGame();
+      } else if (totalValue > randomNumber) {
+        losses++;
+        $("#losses").text(losses);
+        startGame();
+      }
+    });
+    $("#crystal4").on("click", function() {
+      totalValue += crystalFourNum;
+      $("#totalScore").html(totalValue);
+      console.log(totalValue);
+      if (totalValue === randomNumber) {
+        wins++;
+        $("#wins").text(wins);
+        startGame();
+      } else if (totalValue > randomNumber) {
+        losses++;
+        $("#losses").text(losses);
+        startGame();
+      }
+    });
 
     console.log(totalValue);
-    // console.log(randomNumber);
-    // if (totalValue === randomNumber) {
-    //   console.log("party");
-    // } else if (totalValue > randomNumber) {
-    //   console.log("not a party");
-    // }
   }
   gemClick();
+
+  $(".btn").on("click", function() {
+    wins = 0;
+    $("#wins").text(wins);
+    losses = 0;
+    $("#losses").text(losses);
+    startGame();
+  });
 });
 //
 //
