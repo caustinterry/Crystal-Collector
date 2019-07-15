@@ -19,11 +19,7 @@ $(document).ready(function() {
 
   //
   //Functions
-  //
-  //function to randomly generate the value we're trying to total
-  // function numGen() {
-  //   return Math.floor(Math.random() * (120 - 19 + 1)) + 19;
-  // }
+
   //function to generate the random number for the crystals
   function setValues() {
     return Math.floor(Math.random() * 12) + 1;
